@@ -5,36 +5,50 @@ public class ItemArray : MonoBehaviour {
 
 	public int ArrayLength = 2;
 	private int CurrentItem = 0;
-	public double KeyDelay = 0.25;
+	private float KeyDelay = 0.000f;
 	public int[] Item;
 
 
 	// Use this for initialization
 	void Start () {
-
+		
 		Item = new int[ArrayLength];
+		StartCoroutine(ArrayLoop());
 	}
 	
-	// Update is called once per frame
-	void Update() {
+	// Update script
+	public IEnumerator ArrayLoop() {
 
-		if(Input.GetKeyDown(KeyCode.A))
+		while(true)
 		{
-			if(CurrentItem == 0)
+			//Scroll left through Inventory
+			if(Input.GetKeyDown(KeyCode.Q))
 			{
-				CurrentItem = ArrayLength -1;
+				if(CurrentItem == 0)
+				{
+					CurrentItem = ArrayLength -1;
+				}
+				else CurrentItem--;	
 			}
-			else CurrentItem--;	
-		}
-		else if(Input.GetKeyDown(KeyCode.D))
-		{
-			if(CurrentItem == ArrayLength - 1)
+			//Scroll right through Inventory
+			else if(Input.GetKeyDown(KeyCode.E))
 			{
-				CurrentItem = 0;
+				if(CurrentItem == ArrayLength - 1)
+				{
+					CurrentItem = 0;
+				}
+				else CurrentItem++;
 			}
-			else CurrentItem++;
+			//Use selected item
+			else if(Input.GetKeyDown (KeyCode.J));
+			{
+				ItemSystem itemSystem = GetComponent<ItemSystem>();
+				itemSystem.UseItem(CurrentItem);
+			}
+			Debug.Log (CurrentItem);
+
+			yield return new WaitForSeconds(KeyDelay);
 		}
-		Debug.Log (CurrentItem);
 	}
 }
 
