@@ -35,7 +35,6 @@ public class ItemArray : MonoBehaviour {
 			else CurrentItem++;
 		}
 		Debug.Log (CurrentItem);
-	
 	}
 }
 
