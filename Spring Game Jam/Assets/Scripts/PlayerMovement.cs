@@ -65,6 +65,7 @@ public class PlayerMovement : MonoBehaviour {
 
 	void WaterOn()
 	{
+		Debug.Log ("Collided with water");
 		inWater = true;
 		grounded = true;
 	}
