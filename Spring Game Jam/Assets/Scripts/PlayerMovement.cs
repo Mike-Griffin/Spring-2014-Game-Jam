@@ -4,8 +4,11 @@ using System.Collections;
 public class PlayerMovement : MonoBehaviour {
 	bool grounded = false;
 	bool inWater = false;
-	public float LandMovementSpeed = 10;
+	public float landMovementSpeed = 10;
+	public float waterMovementSpeed = 10;
 	public float jumpForce = 10;
+	public float waterForce = 10;
+	private float movementSpeed = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -15,22 +18,45 @@ public class PlayerMovement : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () 
 	{
+		if (!inWater) 
+		{
+			movementSpeed = landMovementSpeed;
+		}
+		else
+		{
+			movementSpeed = waterMovementSpeed;
+			grounded = true;
+		}
 		if(grounded)
 		{
-			if(Input.GetAxis ("Horizontal") > 0)
+			if(Input.GetAxis("Horizontal") > 0)
 			{
-				rigidbody2D.velocity = Vector2.right * LandMovementSpeed;
+				rigidbody2D.velocity = Vector2.right * movementSpeed;
 			}
-			if(Input.GetAxis ("Horizontal") < 0)
+			if(Input.GetAxis("Horizontal") < 0)
 			{
-				rigidbody2D.velocity = -Vector2.right * LandMovementSpeed;
+				rigidbody2D.velocity = -Vector2.right * movementSpeed;
 			}
 		}
 
-		if (grounded && Input.GetKeyDown (KeyCode.Space)) 
+		if (!inWater && grounded && Input.GetKeyDown (KeyCode.Space)) 
 		{
 			Jump();
 			Debug.Log("On the ground");
+		}
+
+		if(inWater)
+		{
+			rigidbody2D.AddForce(Vector2.up * waterForce);
+			if(Input.GetAxis("Vertical") > 0)
+			{
+				rigidbody2D.velocity = Vector2.up * movementSpeed;
+			}
+
+			if(Input.GetAxis("Vertical") < 0)
+			{
+				rigidbody2D.velocity = -Vector2.up * movementSpeed;
+			}
 		}
 	}
 
@@ -50,6 +76,16 @@ public class PlayerMovement : MonoBehaviour {
 		{
 			grounded = true;
 		}
+	}
+
+	void OnCollisionExit2D(Collision2D collision)
+	{
+
+		if(collision.gameObject.tag == "Platform")
+		{
+			grounded = false;
+		}
+
 	}
 
 	void Jump()
