@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class PlayerMovement : MonoBehaviour {
-	bool grounded = true;
+	bool grounded = false;
 	bool inWater = false;
 	public float LandMovementSpeed = 10;
 	public float jumpForce = 10;
@@ -15,12 +15,18 @@ public class PlayerMovement : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () 
 	{
-		/*
-		if(Input.GetAxis("Horizontal")
+		if(grounded)
 		{
-
+			if(Input.GetAxis ("Horizontal") > 0)
+			{
+				rigidbody2D.velocity = Vector2.right * LandMovementSpeed;
+			}
+			if(Input.GetAxis ("Horizontal") < 0)
+			{
+				rigidbody2D.velocity = -Vector2.right * LandMovementSpeed;
+			}
 		}
-*/
+
 		if (grounded && Input.GetKeyDown (KeyCode.Space)) 
 		{
 			Jump();
