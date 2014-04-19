@@ -3,18 +3,24 @@ using System.Collections;
 
 public class ItemSystem : MonoBehaviour {
 	
-	int ItemCountOne = 0;	//dedicated to Crystal Bomb
-	int ItemCountTwo = 0;	//dedicated to Basic Bomb
+	public int ItemCountOne = 0;	//dedicated to Crystal Bomb
+	public int ItemCountTwo = 0;	//dedicated to Basic Bomb
 	
 	//Item Picked Up
-	void GetItem(int ItemChoice){
-		
+	void GetItem(int GetItemChoice){
+
+		Debug.Log("ITEM GOT!");
 		//Determine which item it is, and increase its count
-		if(ItemChoice == 0)
+		if(GetItemChoice == 0)
+		{
+			Debug.Log ("ITEM 1");
 			ItemCountOne++;
-		
-		else if(ItemChoice == 1)
+		}
+		else if(GetItemChoice == 1)
+		{
+			Debug.Log ("ITEM 2");
 			ItemCountTwo++;
+		}
 		
 	}
 	
@@ -28,6 +34,7 @@ public class ItemSystem : MonoBehaviour {
 			if(ItemCountOne > 0)
 			{
 				//Use Item
+				Debug.Log ("USED ITEM");
 				ItemCountOne--;
 			}
 			//else make bad noise

@@ -4,7 +4,7 @@ using System.Collections;
 public class ItemArray : MonoBehaviour {
 
 	public int ArrayLength = 2;
-	private int CurrentItem = 0;
+	public int CurrentItem = 0;
 	private float KeyDelay = 0.000f;
 	public int[] Item;
 
@@ -40,12 +40,11 @@ public class ItemArray : MonoBehaviour {
 				else CurrentItem++;
 			}
 			//Use selected item
-			else if(Input.GetKeyDown (KeyCode.J));
+			else if(Input.GetKeyDown (KeyCode.J))
 			{
 				ItemSystem itemSystem = GetComponent<ItemSystem>();
 				itemSystem.UseItem(CurrentItem);
 			}
-			Debug.Log (CurrentItem);
 
 			yield return new WaitForSeconds(KeyDelay);
 		}
