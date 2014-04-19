@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour {
 
 		}
 */
-		if (!inWater && grounded && Input.GetKeyDown (KeyCode.Space)) 
+		if (grounded && Input.GetKeyDown (KeyCode.Space)) 
 		{
 			Jump();
 			Debug.Log("On the ground");
