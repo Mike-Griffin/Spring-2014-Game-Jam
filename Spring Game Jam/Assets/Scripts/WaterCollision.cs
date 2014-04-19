@@ -3,13 +3,17 @@ using System.Collections;
 
 public class WaterCollision : MonoBehaviour {
 
-	void OnTriggerEnter(Collider player)
+	void OnTriggerEnter2D(Collider2D player)
 	{
+		Debug.Log("Entered");
 		if(player.tag == "Player")
+		{
+			Debug.Log("PLAYER!");
 			player.SendMessageUpwards("WaterOn", SendMessageOptions.DontRequireReceiver);
+		}
 	}
 	
-	void OnTriggerExit(Collider player)
+	void OnTriggerExit2D(Collider2D player)
 	{
 		if(player.tag == "Player")
 			player.SendMessageUpwards("WaterOff", SendMessageOptions.DontRequireReceiver);	
