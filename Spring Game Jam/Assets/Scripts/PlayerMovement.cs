@@ -42,7 +42,7 @@ public class PlayerMovement : MonoBehaviour {
 		if (!inWater && grounded && Input.GetKeyDown (KeyCode.Space)) 
 		{
 			Jump();
-			Debug.Log("On the ground");
+			//Debug.Log("On the ground");
 		}
 
 		if(inWater)
@@ -50,12 +50,15 @@ public class PlayerMovement : MonoBehaviour {
 			rigidbody2D.AddForce(Vector2.up * waterForce);
 			if(Input.GetAxis("Vertical") > 0)
 			{
-				rigidbody2D.velocity = Vector2.up * movementSpeed;
+				transform.Translate(Vector2.up * movementSpeed * Time.deltaTime);
+				//rigidbody2D.velocity = Vector2.up * movementSpeed;
 			}
 
 			if(Input.GetAxis("Vertical") < 0)
 			{
-				rigidbody2D.velocity = -Vector2.up * movementSpeed;
+				transform.Translate(Vector2.up * -movementSpeed * Time.deltaTime);
+				//transform.Translate(Vector2(0, -movementSpeed) * Time.deltaTime);
+				//rigidbody2D.velocity = -Vector2.up * movementSpeed;
 			}
 		}
 	}
@@ -63,18 +66,33 @@ public class PlayerMovement : MonoBehaviour {
 	void WaterOn()
 	{
 		inWater = true;
+		grounded = true;
 	}
 
 	void WaterOff()
 	{
 		inWater = false;
+		grounded = true;
+
+	}
+
+	void GroundedOn()
+	{
+
+		grounded = true;
+	}
+
+	void GroundedOff()
+	{
+		Debug.Log ("Grounded Off");
+		grounded = false;
 	}
 
 	void OnCollisionEnter2D(Collision2D collision)
 	{
 		if (collision.gameObject.tag == "Platform") 
 		{
-			grounded = true;
+		//	grounded = true;
 		}
 	}
 
@@ -83,7 +101,7 @@ public class PlayerMovement : MonoBehaviour {
 
 		if(collision.gameObject.tag == "Platform")
 		{
-			grounded = false;
+		//	grounded = false;
 		}
 
 	}
