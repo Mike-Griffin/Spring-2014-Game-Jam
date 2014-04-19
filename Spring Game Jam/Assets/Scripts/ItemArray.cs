@@ -35,8 +35,6 @@ public class ItemArray : MonoBehaviour {
 			else CurrentItem++;
 		}
 		Debug.Log (CurrentItem);
-
-		yield return new WaitForSeconds(KeyDelay);
 	
 	}
 }
