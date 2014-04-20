@@ -46,10 +46,23 @@ public class Item : MonoBehaviour {
 			collider.gameObject.SendMessageUpwards("StartCrystalize", SendMessageOptions.DontRequireReceiver);
 			Destroy (this.gameObject);
 		}
-
+		/*
 		else if(collider.gameObject.tag == "Water" && BasicBomb)
 		{
-			Destroy (this.gameObject);
+			Debug.Log ("This happens");
+			collider.gameObject.SendMessageUpwards("RemoveAcid", SendMessageOptions.DontRequireReceiver);
+
 		}
+		*/
+	}
+
+	void WaterHit()
+	{
+		if(BasicBomb)
+		{
+			Destroy (this.gameObject);
+			GameObject.Find("WaterCollider").SendMessageUpwards("RemoveAcid", SendMessageOptions.DontRequireReceiver);
+		}
+
 	}
 }
