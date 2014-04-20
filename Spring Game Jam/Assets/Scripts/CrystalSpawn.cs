@@ -11,7 +11,7 @@ public class CrystalSpawn : MonoBehaviour {
 	public bool LeftFree, UpFree, RightFree, DownFree;
 
 	public float SpawnDelay = 0.5f;
-	public float MiniDelay = 0.124f;
+	private float MiniDelay = 0.40f;
 	public GameObject Crystal;
 
 	public void Start(){
@@ -23,16 +23,21 @@ public class CrystalSpawn : MonoBehaviour {
 	public void OnTriggerStay2D(Collider2D collider)
 	{
 		if(collider.tag != "Player" && collider.tag != "Water" && collider.tag != "Spawn"
-		   && collider.tag != "SpawnLeft" && collider.tag != "SpawnRight")
+		   && collider.tag != "SpawnLeft" && collider.tag != "SpawnRight" && collider.tag != "Bomb")
 		{
 			Destroy (gameObject);
+		}
+
+		else if(collider.tag == "Player")
+		{
+			GameObject.Find("GameManager").SendMessageUpwards("GameOver", SendMessageOptions.DontRequireReceiver);
 		}
 	}
 	
 	// Use this for initialization
 	public IEnumerator SpawnCrystals(){
 
-		yield return new WaitForSeconds(SpawnDelay);
+		yield return new WaitForSeconds(MiniDelay);
 
 		if(LeftFree)
 		{

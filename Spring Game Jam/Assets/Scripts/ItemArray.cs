@@ -15,6 +15,11 @@ public class ItemArray : MonoBehaviour {
 		Item = new int[ArrayLength];
 		StartCoroutine(ArrayLoop());
 	}
+
+	public void ChangeCurrent(int NewCurrent){
+
+		CurrentItem = NewCurrent;
+	}
 	
 	// Update script
 	public IEnumerator ArrayLoop() {

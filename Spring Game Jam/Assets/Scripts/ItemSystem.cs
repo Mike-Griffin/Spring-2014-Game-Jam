@@ -40,11 +40,13 @@ public class ItemSystem : MonoBehaviour {
 		{
 			Debug.Log ("ITEM 0");
 			ItemCountOne++;
+			gameObject.SendMessageUpwards ("ChangeCurrent", 0, SendMessageOptions.DontRequireReceiver);
 		}
 		else if(GetItemChoice == 1)
 		{
 			Debug.Log ("ITEM 1");
 			ItemCountTwo++;
+			gameObject.SendMessageUpwards ("ChangeCurrent", 1, SendMessageOptions.DontRequireReceiver);
 		}
 		
 	}
