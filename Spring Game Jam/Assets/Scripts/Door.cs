@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class Door : MonoBehaviour {
-	bool levelCleared = false;
+	bool floodFixed = false;
 	// Use this for initialization
 	void Start () {
 		renderer.material.color = Color.grey;
@@ -13,9 +13,9 @@ public class Door : MonoBehaviour {
 	{
 		if(Input.GetKeyDown(KeyCode.Space))
 		{
-			levelCleared = true;
+			floodFixed = true;
 		}
-		if(levelCleared == true)
+		if(floodFixed == true)
 		{
 			renderer.material.color = Color.yellow;
 		}
@@ -23,9 +23,15 @@ public class Door : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D collision)
 	{
-		if(collision.gameObject.tag == "Player")
+		if(collision.gameObject.tag == "Player" )
 		{
-			GameObject.Find ("Game Manager").SendMessageUpwards("Level Complete", SendMessageOptions.DontRequireReceiver);
+			Debug.Log ("Player collides with door");
+			GameObject.Find ("GameManager").SendMessageUpwards("LevelComplete", SendMessageOptions.DontRequireReceiver);
 		}
+	}
+
+	void FloodFixed()
+	{
+		floodFixed = true;
 	}
 }

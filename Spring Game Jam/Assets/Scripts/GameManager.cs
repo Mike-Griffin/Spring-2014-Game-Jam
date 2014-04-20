@@ -20,10 +20,17 @@ public class GameManager : MonoBehaviour {
 	void LevelComplete()
 	{
 		levelComplete = true;
+		Debug.Log ("Level Cleared");
 	}
 
 	void GameOver()
 	{
 		Application.LoadLevel ("Game Over");
+	}
+
+	void FloodFixed()
+	{
+		GameObject.Find ("WaterCollider").SendMessageUpwards ("FloodFixed", SendMessageOptions.DontRequireReceiver);
+		GameObject.Find ("Door").SendMessageUpwards ("FloodFixed", SendMessageOptions.DontRequireReceiver);
 	}
 }

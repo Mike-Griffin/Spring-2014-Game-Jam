@@ -11,5 +11,6 @@ public class Crystalize : MonoBehaviour {
 		//SpawnPoint.position = new Vector2(gameObject.transform.localPosition.x,
 		//                                  gameObject.transform.localPosition.y + 1);
 		Instantiate(Crystal, SpawnPoint.position, SpawnPoint.rotation);
+		GameObject.Find ("GameManager").SendMessageUpwards ("FloodFixed", SendMessageOptions.DontRequireReceiver);
 	}
 }

@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class WaterCollision : MonoBehaviour {
-	private bool acidic = true;
+	public bool acidic = true;
 	//private bool removeAcid = false;
 	private float thirdColor = .16f;
 	private float KeyDelay = .05f;

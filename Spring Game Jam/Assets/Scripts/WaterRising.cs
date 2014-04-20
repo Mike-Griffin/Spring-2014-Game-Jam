@@ -3,7 +3,7 @@ using System.Collections;
 
 public class WaterRising : MonoBehaviour {
 	public float KeyDelay = 0.000f;
-	private float height = 0;
+	public float height = 0;
 	public float increment = .001f;
 	private bool rising = true;
 	//BoxCollider2D collider;
@@ -38,9 +38,10 @@ public class WaterRising : MonoBehaviour {
 		}
 	}
 
-	void StopRise()
+	void FloodFixed()
 	{
 		rising = false;
+		height = gameObject.transform.position.y;
 	}
 
 	void Update () {
