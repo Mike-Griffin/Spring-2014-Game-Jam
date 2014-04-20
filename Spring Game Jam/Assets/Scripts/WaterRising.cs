@@ -21,11 +21,19 @@ public class WaterRising : MonoBehaviour {
 	{
 		while(true)
 		{
-			Debug.Log ("This code is being executed");
+			//Debug.Log ("This code is being executed");
 			height += increment;
 			gameObject.transform.localScale = new Vector2(gameObject.transform.localScale.x, height);
 			//gameObject.transform.position = new Vector2(0, 1 - height / 2);
 			yield return new WaitForSeconds(KeyDelay);
+		}
+	}
+
+	void OnTriggerEnter2D(Collider2D collision)
+	{
+		if (collision.tag == "Ceiling") 
+		{
+			Debug.Log ("Game Over");
 		}
 	}
 
