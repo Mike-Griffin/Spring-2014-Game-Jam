@@ -11,6 +11,26 @@ public class ItemSystem : MonoBehaviour {
 	public int ItemCountOne = 0;	//dedicated to Crystal Bomb
 	public int ItemCountTwo = 0;	//dedicated to Basic Bomb
 
+	void Update(){
+
+		if(Input.GetKeyDown(KeyCode.A))
+			FacingLeft ();
+		else if(Input.GetKeyDown (KeyCode.D))
+			FacingRight ();
+	}
+
+	void FacingRight(){
+
+		SpawnPoint.position = new Vector2(gameObject.transform.localPosition.x + 1.2f,
+		                                  gameObject.transform.localPosition.y);
+	}
+
+	void FacingLeft(){
+
+		SpawnPoint.position = new Vector2(gameObject.transform.localPosition.x - 1.2f,
+		                                  gameObject.transform.localPosition.y);
+	}
+
 	//Item Picked Up
 	void GetItem(int GetItemChoice){
 
