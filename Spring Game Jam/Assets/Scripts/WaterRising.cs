@@ -5,6 +5,7 @@ public class WaterRising : MonoBehaviour {
 	public float KeyDelay = 0.000f;
 	private float height = 0;
 	public float increment = .001f;
+	private bool rising = true;
 	//BoxCollider2D collider;
 
 	// Use this for initialization
@@ -19,7 +20,7 @@ public class WaterRising : MonoBehaviour {
 
 	public IEnumerator IncreaseBox()
 	{
-		while(true)
+		while(rising)
 		{
 			//Debug.Log ("This code is being executed");
 			height += increment;
@@ -31,10 +32,15 @@ public class WaterRising : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D collision)
 	{
-		if (collision.tag == "Ceiling") 
+		if (collision.tag == "End Game") 
 		{
 			Debug.Log ("Game Over");
 		}
+	}
+
+	void StopRise()
+	{
+		rising = false;
 	}
 
 	void Update () {
