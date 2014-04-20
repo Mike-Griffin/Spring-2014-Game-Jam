@@ -4,12 +4,51 @@ using System.Collections;
 public class Item : MonoBehaviour {
 
 	public int ItemNumber = 0;
+	public bool AllowedToGet = false;
 
-	void OnCollisionEnter2D(Collision2D player)
+	public bool CrystalBomb = false;
+	public bool BasicBomb = false;
+
+	void Start()
 	{
-		if(player.gameObject.tag == "Player")
+		StartCoroutine(Timer());
+	}
+
+	public IEnumerator Timer(){
+
+		yield return new WaitForSeconds(0.5f);
+		AllowedToGet = true;
+	}
+
+	//When spawned retains CrystalBomb type
+	public void CrystalBombOn(){
+
+		CrystalBomb = true;
+	}
+	//Retains BasicBomb type
+	public void BasicBombOn(){
+
+		BasicBomb = true;
+	}
+
+	void OnCollisionEnter2D(Collision2D collider)
+	{
+		//If Player hits item, pick up item
+		if(collider.gameObject.tag == "Player" && AllowedToGet == true)
 		{
-			player.gameObject.SendMessageUpwards("GetItem", ItemNumber, SendMessageOptions.DontRequireReceiver);
+			collider.gameObject.SendMessageUpwards("GetItem", ItemNumber, SendMessageOptions.DontRequireReceiver);
+			Destroy (this.gameObject);
+		}
+
+		//If CrystalBomb hits LeakPoint, begin crystalization
+		else if(collider.gameObject.tag == "Leak" && CrystalBomb)
+		{
+			collider.gameObject.SendMessageUpwards("StartCrystalize", SendMessageOptions.DontRequireReceiver);
+			Destroy (this.gameObject);
+		}
+
+		else if(collider.gameObject.tag == "Water" && BasicBomb)
+		{
 			Destroy (this.gameObject);
 		}
 	}

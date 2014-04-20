@@ -5,7 +5,7 @@ public class ItemArray : MonoBehaviour {
 
 	public int ArrayLength = 2;
 	public int CurrentItem = 0;
-	private float KeyDelay = 0.000f;
+	private float KeyDelay = 0.01f;
 	public int[] Item;
 
 

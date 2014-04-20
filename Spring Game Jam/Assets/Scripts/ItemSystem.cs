@@ -2,10 +2,15 @@
 using System.Collections;
 
 public class ItemSystem : MonoBehaviour {
-	
+
+	public GameObject ItemOne;
+	public GameObject ItemTwo;
+
+	public Transform SpawnPoint;
+
 	public int ItemCountOne = 0;	//dedicated to Crystal Bomb
 	public int ItemCountTwo = 0;	//dedicated to Basic Bomb
-	
+
 	//Item Picked Up
 	void GetItem(int GetItemChoice){
 
@@ -13,12 +18,12 @@ public class ItemSystem : MonoBehaviour {
 		//Determine which item it is, and increase its count
 		if(GetItemChoice == 0)
 		{
-			Debug.Log ("ITEM 1");
+			Debug.Log ("ITEM 0");
 			ItemCountOne++;
 		}
 		else if(GetItemChoice == 1)
 		{
-			Debug.Log ("ITEM 2");
+			Debug.Log ("ITEM 1");
 			ItemCountTwo++;
 		}
 		
@@ -34,7 +39,9 @@ public class ItemSystem : MonoBehaviour {
 			if(ItemCountOne > 0)
 			{
 				//Use Item
-				Debug.Log ("USED ITEM");
+				Debug.Log ("USED ITEM 0");
+				GameObject var1 = Instantiate(ItemOne, SpawnPoint.position, SpawnPoint.rotation) as GameObject;
+				var1.SendMessageUpwards("CrystalBombOn", SendMessageOptions.DontRequireReceiver);
 				ItemCountOne--;
 			}
 			//else make bad noise
@@ -44,6 +51,9 @@ public class ItemSystem : MonoBehaviour {
 			if(ItemCountTwo > 0)
 			{
 				//Use Item
+				Debug.Log ("USED ITEM 1");
+				GameObject var2 = Instantiate(ItemTwo, SpawnPoint.position, SpawnPoint.rotation) as GameObject;
+				var2.SendMessageUpwards("BasicBombOn", SendMessageOptions.DontRequireReceiver);
 				ItemCountTwo--;
 			}
 			//else make bad noise
