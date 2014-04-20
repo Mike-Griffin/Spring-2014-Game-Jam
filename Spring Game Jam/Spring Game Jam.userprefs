@@ -1,11 +1,13 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\WaterCollision.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\CrystalSpawnPoints.cs">
     <Files>
-      <File FileName="Assets\Scripts\WaterCollision.cs" Line="16" Column="3" />
-      <File FileName="..\..\..\Unity Data\Unity Projects\Space 8-7-13\Assets\Scripts\PowerUp\ShotCollisionExtra.js" Line="1" Column="1" />
-      <File FileName="..\..\..\Unity Data\Unity Projects\Space 8-7-13\Assets\Scripts\PowerUp\PowerUpCollision.js" Line="1" Column="1" />
-      <File FileName="..\..\..\Unity Data\Unity Projects\Space 8-7-13\Assets\Scripts\LEVELSpawning\SpawnEnemy.js" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Crystalize.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\CrystalSpawn.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\CrystalSpawnPoints.cs" Line="77" Column="19" />
+      <File FileName="Assets\Scripts\Item.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\ItemSystem.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\ItemArray.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

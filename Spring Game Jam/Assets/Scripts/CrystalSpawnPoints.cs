@@ -5,11 +5,12 @@ public class CrystalSpawnPoints : MonoBehaviour {
 	
 	public bool L, U, R, D;
 	public bool Checked = true;
-	public int WaterLine = 0;
+	public float WaterLine = 0;
 	public Transform targetObj;
 	// Use this for initialization
 	void Start(){
 
+		WaterLine = GameObject.Find("WaterCollider").GetComponent<WaterRising>().height;
 		Debug.Log (GameObject.Find("WaterCollider").GetComponent<WaterRising>().height);
 	}                                             
 
@@ -47,6 +48,7 @@ public class CrystalSpawnPoints : MonoBehaviour {
 
 		else if(gameObject.transform.position.y >= WaterLine && Checked == true)
 		{
+			Debug.Log ("WATERLINE");
 			if(L)
 			{
 				Debug.Log ("STOP SPAWNING!!!");
