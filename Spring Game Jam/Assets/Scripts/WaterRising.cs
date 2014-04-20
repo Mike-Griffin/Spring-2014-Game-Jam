@@ -35,7 +35,7 @@ public class WaterRising : MonoBehaviour {
 	{
 		if (collision.tag == "End Game") 
 		{
-			//GameObject.Find("GameManager").SendMessageUpwards("GameOver", SendMessageOptions.DontRequireReceiver);
+			GameObject.Find("GameManager").SendMessageUpwards("GameOver", SendMessageOptions.DontRequireReceiver);
 		}
 	}
 

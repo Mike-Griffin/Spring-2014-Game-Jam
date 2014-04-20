@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour {
 
 	void GameOver()
 	{
-		Application.LoadLevel ("Game Over");
+		Application.LoadLevel (Application.loadedLevel + 1);
 	}
 
 	void FloodFixed()
