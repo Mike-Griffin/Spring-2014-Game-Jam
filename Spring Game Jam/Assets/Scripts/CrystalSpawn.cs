@@ -8,6 +8,8 @@ public class CrystalSpawn : MonoBehaviour {
 	public GameObject SpawnPointU;
 	public GameObject SpawnPointD;
 
+	public float WaterLine = 0;
+
 	public bool LeftFree, UpFree, RightFree, DownFree;
 
 	public float SpawnDelay = 0.5f;
@@ -17,7 +19,11 @@ public class CrystalSpawn : MonoBehaviour {
 	public void Start(){
 
 		LeftFree = UpFree = RightFree = DownFree = true;
+		WaterLine = GameObject.Find("WaterCollider").GetComponent<WaterRising>().actualHeight;
+		if(gameObject.transform.position.y >= WaterLine)
+			Destroy (gameObject);
 		StartCoroutine(SpawnCrystals());
+
 	}
 
 	public void OnTriggerStay2D(Collider2D collider)

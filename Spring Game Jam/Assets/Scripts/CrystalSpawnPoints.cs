@@ -10,8 +10,9 @@ public class CrystalSpawnPoints : MonoBehaviour {
 	// Use this for initialization
 	void Start(){
 
-		WaterLine = GameObject.Find("WaterCollider").GetComponent<WaterRising>().height;
-		Debug.Log (GameObject.Find("WaterCollider").GetComponent<WaterRising>().height);
+		WaterLine = GameObject.Find("WaterCollider").GetComponent<WaterRising>().actualHeight;
+		Debug.Log (GameObject.Find("WaterCollider").GetComponent<WaterRising>().actualHeight);
+
 	}                                             
 
 	void OnTriggerStay2D(Collider2D collider)

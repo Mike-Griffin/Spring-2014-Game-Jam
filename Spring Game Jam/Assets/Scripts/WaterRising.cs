@@ -4,6 +4,7 @@ using System.Collections;
 public class WaterRising : MonoBehaviour {
 	public float KeyDelay = 0.000f;
 	public float height = 0;
+	public float actualHeight = 0;
 	public float increment = .001f;
 	private bool rising = true;
 	//BoxCollider2D collider;
@@ -42,6 +43,7 @@ public class WaterRising : MonoBehaviour {
 	{
 		rising = false;
 		height = gameObject.transform.position.y;
+		actualHeight = height + (gameObject.transform.localScale.y * 2);
 	}
 
 	void Update () {
