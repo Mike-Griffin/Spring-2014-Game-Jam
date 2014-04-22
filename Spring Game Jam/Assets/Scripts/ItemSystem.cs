@@ -41,12 +41,14 @@ public class ItemSystem : MonoBehaviour {
 			Debug.Log ("ITEM 0");
 			ItemCountOne++;
 			gameObject.SendMessageUpwards ("ChangeCurrent", 0, SendMessageOptions.DontRequireReceiver);
+			gameObject.SendMessageUpwards ("AddCount", 0, SendMessageOptions.DontRequireReceiver);
 		}
 		else if(GetItemChoice == 1)
 		{
 			Debug.Log ("ITEM 1");
 			ItemCountTwo++;
 			gameObject.SendMessageUpwards ("ChangeCurrent", 1, SendMessageOptions.DontRequireReceiver);
+			gameObject.SendMessageUpwards ("AddCount", 1, SendMessageOptions.DontRequireReceiver);
 		}
 		
 	}
@@ -65,6 +67,7 @@ public class ItemSystem : MonoBehaviour {
 				GameObject var1 = Instantiate(ItemOne, SpawnPoint.position, SpawnPoint.rotation) as GameObject;
 				var1.SendMessageUpwards("CrystalBombOn", SendMessageOptions.DontRequireReceiver);
 				ItemCountOne--;
+				gameObject.SendMessageUpwards ("MinusCount", 0, SendMessageOptions.DontRequireReceiver);
 			}
 			//else make bad noise
 		}
@@ -77,6 +80,7 @@ public class ItemSystem : MonoBehaviour {
 				GameObject var2 = Instantiate(ItemTwo, SpawnPoint.position, SpawnPoint.rotation) as GameObject;
 				var2.SendMessageUpwards("BasicBombOn", SendMessageOptions.DontRequireReceiver);
 				ItemCountTwo--;
+				gameObject.SendMessageUpwards ("MinusCount", 1, SendMessageOptions.DontRequireReceiver);
 			}
 			//else make bad noise
 			
