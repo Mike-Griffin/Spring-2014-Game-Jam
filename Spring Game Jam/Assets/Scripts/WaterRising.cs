@@ -43,7 +43,7 @@ public class WaterRising : MonoBehaviour {
 	{
 		rising = false;
 		height = gameObject.transform.position.y;
-		actualHeight = height + (gameObject.transform.localScale.y * 2);
+		actualHeight = height + (gameObject.transform.localScale.y * 2) + 0.5f;
 	}
 
 	void Update () {
