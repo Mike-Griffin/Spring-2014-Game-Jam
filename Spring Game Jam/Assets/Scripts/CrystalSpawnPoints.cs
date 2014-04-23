@@ -21,26 +21,22 @@ public class CrystalSpawnPoints : MonoBehaviour {
 		{
 			if(L)
 			{
-				Debug.Log ("STOP SPAWNING!!!");
 				transform.parent.SendMessageUpwards("CheckNotFree", 1, 
 			                                  	SendMessageOptions.DontRequireReceiver);
 			}
 			else if(U && collider.tag != "SpawnLeft" && collider.tag!= "SpawnRight")
 			{
-				Debug.Log ("STOP SPAWNING!!!");
 
 				transform.parent.SendMessageUpwards("CheckNotFree", 2, 
 				                                    SendMessageOptions.DontRequireReceiver);
 			}
 			else if(R)
 			{
-				Debug.Log ("STOP SPAWNING!!!");
 				transform.parent.SendMessageUpwards("CheckNotFree", 3, 
 				                                    SendMessageOptions.DontRequireReceiver);
 			}
 			else if(D && collider.tag != "SpawnLeft" && collider.tag!= "SpawnRight")
 			{
-				Debug.Log ("STOP SPAWNING!!!");
 				transform.parent.SendMessageUpwards("CheckNotFree", 4, 
 				                                    SendMessageOptions.DontRequireReceiver);
 
@@ -52,26 +48,21 @@ public class CrystalSpawnPoints : MonoBehaviour {
 			Debug.Log ("WATERLINE");
 			if(L)
 			{
-				Debug.Log ("STOP SPAWNING!!!");
 				transform.parent.SendMessageUpwards("CheckNotFree", 1, 
 					                                    SendMessageOptions.DontRequireReceiver);
 			}
 			else if(U && collider.tag != "SpawnLeft" && collider.tag!= "SpawnRight")
 			{
-				Debug.Log ("STOP SPAWNING!!!");
-					
 				transform.parent.SendMessageUpwards("CheckNotFree", 2, 
 				                                    SendMessageOptions.DontRequireReceiver);
 			}
 			else if(R)
 			{
-				Debug.Log ("STOP SPAWNING!!!");
 				transform.parent.SendMessageUpwards("CheckNotFree", 3, 
 					                                    SendMessageOptions.DontRequireReceiver);
 			}
 			else if(D && collider.tag != "SpawnLeft" && collider.tag!= "SpawnRight")
 			{
-				Debug.Log ("STOP SPAWNING!!!");
 				transform.parent.SendMessageUpwards("CheckNotFree", 4, 
 					                                    SendMessageOptions.DontRequireReceiver);
 					
@@ -86,25 +77,21 @@ public class CrystalSpawnPoints : MonoBehaviour {
 			{
 				if(L)
 				{
-					Debug.Log ("STOP SPAWNING!!!");
 					transform.parent.SendMessageUpwards("CheckNotFree", 1, 
 					                                    SendMessageOptions.DontRequireReceiver);
 				}
 				else if(U && collider.tag != "SpawnLeft" && collider.tag!= "SpawnRight")
 				{
-					Debug.Log ("STOP SPAWNING!!!");
 					transform.parent.SendMessageUpwards("CheckNotFree", 2, 
 					                                    SendMessageOptions.DontRequireReceiver);
 				}
 				else if(R)
 				{
-					Debug.Log ("STOP SPAWNING!!!");
 					transform.parent.SendMessageUpwards("CheckNotFree", 3, 
 					                                    SendMessageOptions.DontRequireReceiver);
 				}
 				else if(D && collider.tag != "SpawnLeft" && collider.tag!= "SpawnRight")
 				{
-					Debug.Log ("STOP SPAWNING!!!");
 					transform.parent.SendMessageUpwards("CheckNotFree", 4, 
 					                                    SendMessageOptions.DontRequireReceiver);
 					
@@ -115,25 +102,21 @@ public class CrystalSpawnPoints : MonoBehaviour {
 		{
 			if(L)
 			{
-				Debug.Log ("STOP SPAWNING!!!");
 				transform.parent.SendMessageUpwards("CheckNotFree", 1, 
 				                                    SendMessageOptions.DontRequireReceiver);
 			}
 			else if(U && collider.tag != "SpawnLeft" && collider.tag!= "SpawnRight")
 			{
-				Debug.Log ("STOP SPAWNING!!!");
 				transform.parent.SendMessageUpwards("CheckNotFree", 2, 
 			                                    SendMessageOptions.DontRequireReceiver);
 			}
 			else if(R)
 			{
-				Debug.Log ("STOP SPAWNING!!!");
 				transform.parent.SendMessageUpwards("CheckNotFree", 3, 
 				                                    SendMessageOptions.DontRequireReceiver);
 			}
 			else if(D && collider.tag != "SpawnLeft" && collider.tag!= "SpawnRight")
 			{
-				Debug.Log ("STOP SPAWNING!!!");
 				transform.parent.SendMessageUpwards("CheckNotFree", 4, 
 					                                    SendMessageOptions.DontRequireReceiver);
 					

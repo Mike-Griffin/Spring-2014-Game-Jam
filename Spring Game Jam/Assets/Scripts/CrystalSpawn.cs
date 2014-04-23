@@ -28,13 +28,13 @@ public class CrystalSpawn : MonoBehaviour {
 
 	public void OnTriggerStay2D(Collider2D collider)
 	{
-		if(collider.tag != "Player" && collider.tag != "Water" && collider.tag != "Spawn"
+		/*if(collider.tag != "Player" && collider.tag != "Water" && collider.tag != "Spawn"
 		   && collider.tag != "SpawnLeft" && collider.tag != "SpawnRight" && collider.tag != "Bomb")
 		{
 			Destroy (gameObject);
-		}
+		}*/
 
-		else if(collider.tag == "Player")
+		if(collider.tag == "Player")
 		{
 			GameObject.Find("GameManager").SendMessageUpwards("GameOver", SendMessageOptions.DontRequireReceiver);
 		}

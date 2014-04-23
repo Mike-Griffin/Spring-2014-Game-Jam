@@ -8,8 +8,7 @@ public class Crystalize : MonoBehaviour {
 
 	public void StartCrystalize(){
 
-		//SpawnPoint.position = new Vector2(gameObject.transform.localPosition.x,
-		//                                  gameObject.transform.localPosition.y + 1);
+		//Destroy(gameObject.collider);
 		Instantiate(Crystal, SpawnPoint.position, SpawnPoint.rotation);
 		GameObject.Find ("GameManager").SendMessageUpwards ("FloodFixed", SendMessageOptions.DontRequireReceiver);
 	}
